@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BW.INŻYNIERIA - Bartek Wierciszewski | Inżynier Budownictwa Warszawa</title>
+    <meta name="description" content="Profesjonalne usługi inżynierskie w Warszawie. Kierownik budowy, inspektor nadzoru, odbiory mieszkań i doradztwo techniczne. Bartek Wierciszewski - Twój zaufany partner na budowie.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@900&family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-section {
+            position: relative;
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background-color: #111827;
+        }
+        #hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: 0;
+            transform: translateX(-50%) translateY(-50%);
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            padding: 2rem;
+        }
+        .hero-content h1 {
+            font-family: 'Exo 2', sans-serif;
+            font-weight: 900;
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.6);
+            position: relative;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .hero-content h1 .letter {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(20px) scale(0.8);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+        .hero-content h1 .letter.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .hero-content .fade-in-item {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .hero-content .fade-in-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .hero-content h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+            animation: scanline 5s linear infinite;
+        }
+        @keyframes scanline {
+            0% { transform: translateX(-50%) scaleX(0.5); opacity: 0.7; }
+            50% { transform: translateX(-50%) scaleX(1.2); opacity: 1; }
+            100% { transform: translateX(-50%) scaleX(0.5); opacity: 0.7; }
+        }
+        .section-title {
+            font-weight: 900;
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .service-card:hover, .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .blueprint-bg {
+            background-color: #f8fafc;
+            background-image:
+                linear-gradient(rgba(203, 213, 225, 0.3) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(203, 213, 225, 0.3) 1px, transparent 1px);
+            background-size: 2rem 2rem;
+        }
+        .btn-primary {
+             background-image: linear-gradient(to right, #3b82f6, #2563eb);
+        }
+        .btn-primary:hover {
+             background-image: linear-gradient(to right, #60a5fa, #3b82f6);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Nagłówek i Nawigacja -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+                <i data-lucide="hard-hat" class="text-blue-500"></i>
+                <span><span class="text-blue-500">BW.</span>INŻYNIERIA</span>
+            </a>
+            <nav class="hidden md:flex space-x-8 items-center">
+                <a href="#o-mnie" class="text-slate-600 hover:text-blue-500 transition duration-300">O mnie</a>
+                <a href="#dlaczego-ja" class="text-slate-600 hover:text-blue-500 transition duration-300">Dlaczego ja?</a>
+                <a href="#uslugi" class="text-slate-600 hover:text-blue-500 transition duration-300">Usługi</a>
+                <a href="#realizacje" class="text-slate-600 hover:text-blue-500 transition duration-300">Realizacje</a>
+                <a href="#kontakt" class="btn-primary text-white px-4 py-2 rounded-md transition-all duration-300">Kontakt</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pb-4">
+            <a href="#o-mnie" class="block py-2 text-slate-600 hover:text-blue-500">O mnie</a>
+            <a href="#dlaczego-ja" class="block py-2 text-slate-600 hover:text-blue-500">Dlaczego ja?</a>
+            <a href="#uslugi" class="block py-2 text-slate-600 hover:text-blue-500">Usługi</a>
+            <a href="#realizacje" class="block py-2 text-slate-600 hover:text-blue-500">Realizacje</a>
+            <a href="#kontakt" class="block mt-2 btn-primary text-white text-center px-4 py-2 rounded-md">Kontakt</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sekcja Hero z wideo w tle -->
+        <section class="hero-section">
+            <div class="hero-overlay"></div>
+            <video autoplay loop muted playsinline id="hero-video">
+                <source src="Animacja_Budowy_Domu_Gotowa.mp4" type="video/mp4">
+                Twoja przeglądarka nie obsługuje wideo.
+            </video>
+            <div class="hero-content">
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">Konstruujemy Przyszłość.</h1>
+                <p class="text-xl md:text-2xl font-light mb-8 fade-in-item">Budujemy Zaufanie. Twoja inwestycja w rękach doświadczonego inżyniera.</p>
+                <a href="#kontakt" class="btn-primary text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 text-lg fade-in-item">Bezpłatna wycena</a>
+            </div>
+        </section>
+
+        <!-- Sekcja O Mnie -->
+        <section id="o-mnie" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/3" data-aos="fade-right" data-aos-duration="800">
+                        <!-- ZMIANA: Zaktualizowano pozycję zdjęcia -->
+                        <img src="PROFIL.jpg" alt="Zdjęcie Bartka Wierciszewskiego, inżyniera budownictwa" class="rounded-full w-80 h-80 object-cover object-[48%_10%] mx-auto shadow-2xl">
+                    </div>
+                    <div class="md:w-2/3" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+                        <h2 class="text-3xl font-bold text-slate-900 mb-4">Inżynier z pasją i doświadczeniem</h2>
+                        <p class="text-slate-600 mb-4 leading-relaxed">Nazywam się Bartek Wierciszewski i jestem inżynierem budownictwa z pełnymi uprawnieniami do kierowania robotami budowlanymi. Od lat z sukcesem prowadzę inwestycje na terenie Warszawy i okolic, dbając o najwyższą jakość, terminowość i optymalizację kosztów.</p>
+                        <p class="text-slate-600 mb-6 leading-relaxed">Moja misja to zapewnienie Państwu spokoju i pewności, że każdy etap budowy jest realizowany zgodnie z projektem, sztuką budowlaną i obowiązującymi przepisami. Podchodzę do każdego projektu indywidualnie, oferując pełne zaangażowanie i profesjonalne doradztwo.</p>
+                        <div class="flex space-x-6">
+                            <div class="flex items-center space-x-2"><i data-lucide="award" class="text-blue-500"></i><span>Uprawnienia budowlane</span></div>
+                            <div class="flex items-center space-x-2"><i data-lucide="map-pin" class="text-blue-500"></i><span>Działa w Warszawie</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja: Dlaczego ja? -->
+        <section id="dlaczego-ja" class="py-20 blueprint-bg">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-slate-900" data-aos="fade-up">Dlaczego Warto Mi Zaufać?</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Gwarantuję profesjonalizm, zaangażowanie i pełne bezpieczeństwo Twojej inwestycji.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="value-card bg-white p-6 rounded-lg shadow-lg text-center transition duration-300" data-aos="fade-up" data-aos-delay="200"><div class="bg-blue-100 text-blue-500 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"><i data-lucide="shield-check" class="w-8 h-8"></i></div><h3 class="text-lg font-bold mb-2">Jakość i Bezpieczeństwo</h3><p class="text-slate-600 text-sm">Priorytetowo traktuję zgodność z normami i sztuką budowlaną, zapewniając trwałość i bezpieczeństwo.</p></div>
+                    <div class="value-card bg-white p-6 rounded-lg shadow-lg text-center transition duration-300" data-aos="fade-up" data-aos-delay="300"><div class="bg-blue-100 text-blue-500 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"><i data-lucide="clock" class="w-8 h-8"></i></div><h3 class="text-lg font-bold mb-2">Terminowość</h3><p class="text-slate-600 text-sm">Skutecznie zarządzam harmonogramem, aby Twoja budowa została ukończona na czas, bez zbędnych opóźnień.</p></div>
+                    <div class="value-card bg-white p-6 rounded-lg shadow-lg text-center transition duration-300" data-aos="fade-up" data-aos-delay="400"><div class="bg-blue-100 text-blue-500 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"><i data-lucide="dollar-sign" class="w-8 h-8"></i></div><h3 class="text-lg font-bold mb-2">Optymalizacja Kosztów</h3><p class="text-slate-600 text-sm">Pomagam w wyborze najlepszych rozwiązań i materiałów, dbając o Twój budżet na każdym etapie.</p></div>
+                    <div class="value-card bg-white p-6 rounded-lg shadow-lg text-center transition duration-300" data-aos="fade-up" data-aos-delay="500"><div class="bg-blue-100 text-blue-500 w-16 h-16 rounded-full flex items-center justify-center mb-4 mx-auto"><i data-lucide="users" class="w-8 h-8"></i></div><h3 class="text-lg font-bold mb-2">Indywidualne Podejście</h3><p class="text-slate-600 text-sm">Jestem Twoim partnerem. Słucham, doradzam i jestem dostępny, aby odpowiedzieć na wszystkie pytania.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja Usługi -->
+        <section id="uslugi" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-slate-900" data-aos="fade-up">Zakres Usług</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Zapewniam kompleksowe wsparcie na każdym etapie procesu budowlanego.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="service-card bg-slate-50 p-8 rounded-lg shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="200"><div class="bg-blue-100 text-blue-500 w-16 h-16 rounded-full flex items-center justify-center mb-6"><i data-lucide="hard-hat" class="w-8 h-8"></i></div><h3 class="text-xl font-bold mb-3">Kierownik Budowy</h3><p class="text-slate-600">Przejęcie obowiązków, prowadzenie dziennika budowy, nadzór nad pracami, dbałość o bezpieczeństwo i zgodność z projektem.</p></div>
+                    <div class="service-card bg-slate-50 p-8 rounded-lg shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="300"><div class="bg-blue-100 text-blue-500 w-16 h-16 rounded-full flex items-center justify-center mb-6"><i data-lucide="clipboard-check" class="w-8 h-8"></i></div><h3 class="text-xl font-bold mb-3">Inspektor Nadzoru</h3><p class="text-slate-600">Reprezentowanie inwestora, kontrola jakości robót, sprawdzanie zgodności z dokumentacją i odbiory.</p></div>
+                    <div class="service-card bg-slate-50 p-8 rounded-lg shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="400"><div class="bg-blue-100 text-blue-500 w-16 h-16 rounded-full flex items-center justify-center mb-6"><i data-lucide="search" class="w-8 h-8"></i></div><h3 class="text-xl font-bold mb-3">Odbiory mieszkań</h3><p class="text-slate-600">Profesjonalne sprawdzenie stanu technicznego nieruchomości. Wykrywanie usterek i wad.</p></div>
+                    <div class="service-card bg-slate-50 p-8 rounded-lg shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="200"><div class="bg-blue-100 text-blue-500 w-16 h-16 rounded-full flex items-center justify-center mb-6"><i data-lucide="lightbulb" class="w-8 h-8"></i></div><h3 class="text-xl font-bold mb-3">Doradztwo Techniczne</h3><p class="text-slate-600">Pomoc w analizie dokumentacji, wyborze technologii i materiałów, optymalizacji kosztów.</p></div>
+                    <div class="service-card bg-slate-50 p-8 rounded-lg shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="300"><div class="bg-blue-100 text-blue-500 w-16 h-16 rounded-full flex items-center justify-center mb-6"><i data-lucide="file-text" class="w-8 h-8"></i></div><h3 class="text-xl font-bold mb-3">Przeglądy Okresowe</h3><p class="text-slate-600">Wykonywanie obowiązkowych rocznych i pięcioletnich przeglądów technicznych budynków.</p></div>
+                    <div class="service-card bg-slate-50 p-8 rounded-lg shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="400"><div class="bg-blue-100 text-blue-500 w-16 h-16 rounded-full flex items-center justify-center mb-6"><i data-lucide="scale" class="w-8 h-8"></i></div><h3 class="text-xl font-bold mb-3">Kosztorysy i Wyceny</h3><p class="text-slate-600">Sporządzanie szczegółowych kosztorysów inwestorskich, ofertowych oraz powykonawczych.</p></div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sekcja Realizacje -->
+        <section id="realizacje" class="py-20 blueprint-bg">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-slate-900" data-aos="fade-up">Wybrane Realizacje</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Projekty, które zrealizowałem, to najlepsza wizytówka moich kompetencji.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="group relative rounded-lg overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="200"><img src="https://placehold.co/600x400/94a3b8/FFFFFF?text=Dom+Jednorodzinny" alt="Realizacja domu jednorodzinnego" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"><div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-xl font-bold">Dom jednorodzinny, Wilanów</h3></div></div>
+                    <div class="group relative rounded-lg overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="300"><img src="https://placehold.co/600x400/94a3b8/FFFFFF?text=Budynek+Us%C5%82ugowy" alt="Realizacja budynku usługowego" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"><div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-xl font-bold">Budynek usługowy, Mokotów</h3></div></div>
+                    <div class="group relative rounded-lg overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="400"><img src="https://placehold.co/600x400/94a3b8/FFFFFF?text=Adaptacja+Poddasza" alt="Realizacja adaptacji poddasza" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"><div class="absolute inset-0 bg-black bg-opacity-50 flex items-end p-6"><h3 class="text-white text-xl font-bold">Adaptacja poddasza, Śródmieście</h3></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja: Licznik -->
+        <section id="liczby" class="py-20 bg-slate-800 text-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-white" data-aos="fade-up">Liczby mówią same za siebie</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mt-12">
+                    <div data-aos="fade-up" data-aos-delay="200"><i data-lucide="building-2" class="w-12 h-12 mx-auto mb-4 text-blue-400"></i><p class="text-5xl font-extrabold" data-target="70">0</p><p class="text-slate-400 mt-2">Zrealizowanych Projektów</p></div>
+                    <div data-aos="fade-up" data-aos-delay="300"><i data-lucide="calendar-check" class="w-12 h-12 mx-auto mb-4 text-blue-400"></i><p class="text-5xl font-extrabold" data-target="12">0</p><p class="text-slate-400 mt-2">Lat Doświadczenia</p></div>
+                    <div data-aos="fade-up" data-aos-delay="400"><i data-lucide="smile" class="w-12 h-12 mx-auto mb-4 text-blue-400"></i><p class="text-5xl font-extrabold" data-target="100">0</p><p class="text-slate-400 mt-2">% Zadowolonych Klientów</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja: Opinie -->
+        <section id="opinie" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-slate-900" data-aos="fade-up">Co Mówią Klienci?</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Twoje zadowolenie jest moją najlepszą rekomendacją.</p>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-slate-50 p-8 rounded-lg shadow-lg" data-aos="fade-right"><i data-lucide="quote" class="text-blue-300 w-10 h-10 mb-4"></i><p class="text-slate-600 italic mb-6">"Pełen profesjonalizm i ogromna wiedza. Pan Bartek był nieocenionym wsparciem podczas budowy naszego domu. Wszystko dopięte na ostatni guzik. Polecam z czystym sumieniem!"</p><div class="flex items-center"><img src="https://placehold.co/50x50/e2e8f0/334155?text=AK" class="rounded-full mr-4" alt="Anna Kowalska"><div><p class="font-bold text-slate-900">Anna Kowalska</p><p class="text-sm text-slate-500">Inwestor prywatny</p></div></div></div>
+                    <div class="bg-slate-50 p-8 rounded-lg shadow-lg" data-aos="fade-left"><i data-lucide="quote" class="text-blue-300 w-10 h-10 mb-4"></i><p class="text-slate-600 italic mb-6">"Współpraca z Panem Bartkiem to czysta przyjemność. Rzetelność, terminowość i świetny kontakt. Dzięki niemu odbiór mieszkania od dewelopera przebiegł sprawnie i bez stresu."</p><div class="flex items-center"><img src="https://placehold.co/50x50/e2e8f0/334155?text=JN" class="rounded-full mr-4" alt="Jan Nowak"><div><p class="font-bold text-slate-900">Jan Nowak</p><p class="text-sm text-slate-500">Nabywca mieszkania</p></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja Kontakt -->
+        <section id="kontakt" class="py-20 blueprint-bg">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title text-slate-900" data-aos="fade-up">Skontaktuj się ze mną</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">Masz pytania lub chcesz omówić swój projekt? Chętnie pomogę. Wypełnij formularz lub zadzwoń.</p>
+                <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex flex-col md:flex-row gap-12">
+                        <div class="md:w-2/3"><form action="#" method="POST"><div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6"><input type="text" placeholder="Imię i nazwisko" class="w-full p-3 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50"><input type="email" placeholder="Adres e-mail" class="w-full p-3 rounded-md border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50"></div><textarea placeholder="Twoja wiadomość..." rows="6" class="w-full p-3 rounded-md border border-slate-300 mb-6 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-slate-50"></textarea><button type="submit" class="w-full btn-primary text-white font-bold py-3 px-8 rounded-lg transition-all duration-300">Wyślij wiadomość</button></form></div>
+                        <div class="md:w-1/3"><h3 class="text-xl font-bold mb-4">Dane kontaktowe</h3>
+                            <div class="flex items-start space-x-4 mb-4"><i data-lucide="phone" class="text-blue-500 mt-1"></i><div><h4 class="font-semibold">Telefon</h4><a href="tel:791398066" class="text-slate-600 hover:text-blue-500">791 398 066</a></div></div>
+                            <div class="flex items-start space-x-4 mb-4"><i data-lucide="mail" class="text-blue-500 mt-1"></i><div><h4 class="font-semibold">Email</h4><a href="mailto:bartosz.wierciszewski@gmail.com" class="text-slate-600 hover:text-blue-500">bartosz.wierciszewski@gmail.com</a></div></div>
+                            <div class="flex items-start space-x-4"><i data-lucide="map-pin" class="text-blue-500 mt-1"></i><div><h4 class="font-semibold">Obszar działania</h4><p class="text-slate-600">Warszawa i okolice</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Stopka -->
+    <footer class="bg-slate-800 text-slate-400 py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 BW.INŻYNIERIA - Bartek Wierciszewski. Wszelkie prawa zastrzeżone.</p>
+            <p class="text-sm mt-2">Projekt i wykonanie strony: Gemini AI</p>
+        </div>
+    </footer>
+
+    <!-- Skrypty -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Inicjalizacja animacji AOS
+        AOS.init({
+            duration: 600,
+            once: true,
+        });
+
+        // Inicjalizacja ikon Lucide
+        lucide.createIcons();
+
+        // Obsługa menu mobilnego
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
+        for (let link of mobileMenuLinks) {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        }
+
+        // Animacja licznika
+        function animateCounters() {
+            const counters = document.querySelectorAll('#liczby [data-target]');
+            const speed = 200;
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText;
+                    const inc = Math.ceil(target / speed);
+                    if (count < target) {
+                        counter.innerText = Math.min(count + inc, target);
+                        setTimeout(updateCount, 10);
+                    } else {
+                        counter.innerText = target;
+                    }
+                };
+                updateCount();
+            });
+        }
+
+        const counterSection = document.getElementById('liczby');
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        observer.observe(counterSection);
+
+        // Skrypt do animacji tekstu w sekcji Hero
+        window.addEventListener('load', () => {
+            const h1 = document.querySelector('.hero-content h1');
+            const otherContent = document.querySelectorAll('.hero-content .fade-in-item');
+
+            if (h1) {
+                const text = h1.textContent;
+                h1.innerHTML = '';
+                
+                text.split('').forEach(letter => {
+                    const span = document.createElement('span');
+                    span.className = 'letter';
+                    span.innerHTML = letter.trim() === '' ? '&nbsp;' : letter;
+                    h1.appendChild(span);
+                });
+
+                const letters = document.querySelectorAll('.hero-content h1 .letter');
+                letters.forEach((letter, index) => {
+                    setTimeout(() => {
+                        letter.classList.add('visible');
+                    }, index * 60);
+                });
+
+                const totalH1AnimationTime = letters.length * 60 + 400;
+                setTimeout(() => {
+                    otherContent.forEach(item => {
+                        item.classList.add('visible');
+                    });
+                }, totalH1AnimationTime);
+            }
+        });
+    </script>
+</body>
+</html>
